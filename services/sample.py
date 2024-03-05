@@ -1,22 +1,22 @@
-from fastapi import HTTPException
-
-
 async def fetch_data():
-    return "데이터 있음"
+    return "데이터"
 
 
 async def get_sample_data():
     try:
-        # service
         data = await fetch_data()
-        # verify
         if data is None:
-            raise Exception("F000001")
-        # response
+            # 알려진 에러 상황
+            raise ValueError("F000001")
+        # 정상적인 응답 반환
         return {
             "message": "S000001",
             "data": data,
         }
-    except Exception as error:
-        # error throw
-        raise HTTPException(status_code=500, detail=str(error)) from error
+    except ValueError as message:
+        if str(message) == "F000001":
+            raise message
+        # 처리하지 못한 에러 케이스들
+        raise ValueError("F000999") from message
+    except Exception:
+        raise ValueError("F000999") from message
