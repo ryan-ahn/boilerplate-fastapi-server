@@ -110,3 +110,7 @@ exclude-protected=_asdict,_fields,_replace,_source,_make
 
 [EXCEPTIONS]
 overgeneral-exceptions=Exception
+
+
+[MESSAGES CONTROL]
+disable=missing-docstring,missing-class-docstring
