@@ -9,8 +9,8 @@
 ## Setting Stack
 - Language : Python
 - Framework : FastAPI
-- Database : MySql
-- ORM : Prisma
+- Database : MySql, MongoDB
+- ORM, ODM : Prisma, Mongoose
 
 
 ## Project Start
